@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-4 img-responsive">
+        <img class="img-responsive" src="{{image_source}}" />
+      </div>
+      <div class="col-sm-8 img-responsive">
+          <h1>{{answer}}</h1>
+          <h2>It looks like {{name}}, is {{going}} to need one in {{location}}</h2>
+          <h2>Weather Summary:  {{summary_description}}</h2>
+          <button class="btn btn-primary" (click)="lookup()" >Lookup a different pet</button>
+      </div>
+  </div>
+</div>

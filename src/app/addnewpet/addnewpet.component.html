@@ -1,0 +1,72 @@
+<div class="container">
+  <h2>Add your pet</h2>
+  <form #myForm="ngForm">
+
+
+
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"  placeholder="Enter Name..."  required  [(ngModel)]="model.name" name="name" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+
+     <!-- TODO: remove this: {{model.name}}-->
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select class="form-control" id="type" placeholder="Select Type" required [(ngModel)]="model.type" name="type" (change)="changeType(model.type)">
+        <option *ngFor="let pow of types" [value]="pow" >{{pow}}</option>
+      </select>
+    </div>
+
+    <!--TODO: remove this: {{model.type}}-->
+
+    <div class="form-group">
+      <label for="breed">Breed</label>
+      <select class="form-control" id="breed" placeholder="Select Breed"  required [(ngModel)]="model.breed" name="breed">
+        <option *ngFor="let breed of breeds" [value]="breed" >{{breed}}</option>
+      </select>
+    </div>
+
+    <!--TODO: remove this: {{model.breed}}-->
+
+    <div class="form-group">
+      <label for="name">Latitude</label>
+      <input type="text" class="form-control" id="latitude" placeholder="Enter Latitude..." required  [(ngModel)]="model.latitude" name="latitude"  #latitude="ngModel">
+      <div [hidden]="latitude.valid || latitude.pristine"
+           class="alert alert-danger">
+        Latitude is required
+      </div>
+    </div>
+
+   <!-- TODO: remove this: {{model.latitude}}-->
+
+    <div class="form-group">
+      <label for="name">Longitude</label>
+      <input type="text" class="form-control" id="longitude" placeholder="Enter Longitude..." required [(ngModel)]="model.longitude" name="longitude"  #longitude="ngModel"
+             (change)="lookForLocation(model.latitude, model.longitude)" >
+      <div [hidden]="longitude.valid || longitude.pristine"
+           class="alert alert-danger">
+        Longitude is required
+      </div>
+    </div>
+
+   <!-- TODO: remove this: {{model.longitude}}-->
+
+    <div class="form-group">
+      <label for="name">Location</label>
+      <input type="text" class="form-control" id="location" placeholder="Enter Location..." [(ngModel)]="model.location" name="location">
+    </div>
+
+    <!--TODO: remove this: {{model.location}}-->
+
+
+          <button type="submit" (click)="onSubmit(model.name, model.type,model.breed,model.location, model.latitude, model.longitude)" class="btn btn-success">Add my pet!</button>
+          <button class="btn btn-primary" (click)="cancelSubmit()" >Cancel</button>
+
+  </form>
+</div>
